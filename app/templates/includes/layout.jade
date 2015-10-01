@@ -1,0 +1,46 @@
+doctype
+html(lang="esp")
+  head
+    meta(charset="utf-8")
+
+    block title
+      title The Title
+
+    block description
+      meta(name='description', content='The Description')
+
+    link(rel="shortcut icon" href="favicon.ico")
+
+    block styles
+      // build:css styles/main.css
+      // bower:css
+      block styles:bower
+        //- link(rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css")
+      // endbower
+      block styles:main
+        link(rel="stylesheet" href="styles/main.css")
+      // endbuild
+      
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no")
+  body
+    block header
+      include header
+
+    block content
+      div
+        p This is the template content
+
+    block footer
+      include footer
+
+    block scripts
+      // build:js scripts/main.js
+      // bower:js
+      block scripts:bower
+        //- script(src='components/jquery/dist/jquery.js')
+        //- script(src='components/bootstrap/dist/js/bootstrap.js')
+      // endbower
+      block scripts:main
+        script(src='scripts/main.js')
+      // endbuild

@@ -1,0 +1,5 @@
+dist/
+app/components/
+node_modules/
+app/**/*.css
+app/**/*.html
