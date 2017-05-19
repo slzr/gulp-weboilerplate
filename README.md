@@ -1,24 +1,26 @@
 # Gulp Web Boilerplate
-----------
-Plantilla con varias configuraciones de Gulp
-Incluye:
-- Gulp
-- Jade
-- Stylus
-- Js Lint
-- Sprites
-- Iconfonts
-- LiveReload Server
-- Imagemin
-- Concat
-- Uglify
+Just another gulp template for web projects.
 
-## Uso
+Includes:
+- [x] Gulp tasks:
+  - [x] Sass compile
+  - [x] BrowserSync Server
+  - [x] Js Lint/Uglify
+  - [x] Files concatenation
+  - [ ] Images minification
+  - [ ] Sprites generation
+  - [ ] Iconfonts generation from SGVs
+  - [ ] Bower components auto includes
+- [ ] SCSS files structure [Guidelines](https://sass-guidelin.es/), [Boilerplate](https://github.com/HugoGiraudel/sass-boilerplate)
+- [ ] Normalize
+- [ ] Modernizr
+
+## Installation
 Desde consola, teniendo instalado nodejs con npm ejecutas:
 
 - Dependencias Globales:
 ```
-$ npm install -g bower gulp stylus
+$ npm install -g bower gulp
 ```
 
 - Instalar dependencias del proyectos:
