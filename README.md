@@ -8,6 +8,7 @@ Includes:
   - [x] Js Lint/Uglify
   - [x] Files concatenation
   - [ ] Images minification
+  - [ ] Build tasks
   - [ ] Sprites generation
   - [ ] Iconfonts generation from SGVs
   - [ ] Bower components auto includes

@@ -1,3 +1,4 @@
 www/
 src/assets/components/
 node_modules/
+build/
