@@ -1,3 +1,7 @@
 {
-  "name": "gulp-weboilerplate"
+  "name": "gulp-weboilerplate",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7"
   }
+}
