@@ -7,6 +7,7 @@ Includes:
   - [x] BrowserSync Server
   - [x] Js Lint/Uglify
   - [x] Files concatenation
+  - [ ] Bootstrap sass
   - [ ] Images minification
   - [ ] Build tasks
   - [ ] Sprites generation
