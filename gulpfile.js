@@ -1,6 +1,7 @@
+
 'use strict';
 
-var gulp    = require('gulp');
+var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'browser-sync', 'del'],
   rename: {
@@ -8,13 +9,34 @@ var plugins = require('gulp-load-plugins')({
   }
 });
 var tasksPath = './gulp-tasks/';
+var conf = require(tasksPath + 'conf');
+var help = require('gulp-help-doc');
 
+
+/**
+ * LOAD all TASKS IN 'gulp-tasks' FOLDER
+ */
 var taskList = require('fs').readdirSync(tasksPath);
-taskList.forEach(function (taskFile) {
-  require(tasksPath + taskFile)(gulp, plugins);
+taskList.forEach( function(taskFile) {
+  if ( typeof(require(tasksPath + taskFile)) == 'function' )
+    require(tasksPath + taskFile)(gulp, plugins, conf);
+  // else
+    // require(tasksPath + taskFile)
 });
 
 
+/**
+ * HELP, LIST AND DESCRIBE TASKS
+ */
+gulp.task('help', function() {
+  return help(gulp, {
+    lineWidth:             120,
+    keysColumnWidth:       25,
+    emptyLineBetweenTasks: false,
+    displayDependencies:   true,
+    // logger:                gutil
+  });
+ });
 
 
 // var gulp       = require('gulp'), 
@@ -31,7 +53,7 @@ taskList.forEach(function (taskFile) {
 //   jshint       = require('gulp-jshint'),
 //   uglify       = require('gulp-uglify'),
 //   bower        = require('main-bower-files'),
-  
+
 //   package      = require('./package.json');
 
 // /**
@@ -51,41 +73,23 @@ taskList.forEach(function (taskFile) {
 
 
 // /**
-//  * COMPILE SCSS
-//  */
-// gulp.task('scss', function(){
-//   return gulp.src('src/assets/scss/styles.scss')
-//     // .pipe(sourcemaps.init())
-//     .pipe(sass().on('error', sass.logError))
-//     .pipe(autoprefixer({ browsers: ['last 4 version', '> 5%'] }))
-//     .pipe(gulp.dest('www/assets/css'))
-//     // .pipe(cssnano())
-//     // .pipe(rename({ suffix: '.min' }))
-//     // .pipe(header(banner, { package : package }))
-//     // .pipe(sourcemaps.write())
-//     // .pipe(gulp.dest('www/assets/css'))
-//     .pipe(browserSync.stream());
-// });
-
-
-// /**
 //  * LINT JS
-//  */
-gulp.task('js',function(){
-  gulp.src('src/assets/js/scripts.js')
-    // .pipe(sourcemaps.init())
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'))
-    // .pipe(header(banner, { package: package }))
-    .pipe(gulp.dest('www/assets/js'))
-    // .pipe(uglify())
-    .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
-    // .pipe(header(banner, { package : package }))
-    // .pipe(rename({ suffix: '.min' }))
-    // .pipe(sourcemaps.write())
-    // .pipe(gulp.dest('www/assets/js'))
-    .pipe(browserSync.stream());    
-});
+// //  */
+// gulp.task('js',function(){
+//   gulp.src('src/assets/js/scripts.js')
+//     // .pipe(sourcemaps.init())
+//     .pipe(jshint('.jshintrc'))
+//     .pipe(jshint.reporter('default'))
+//     // .pipe(header(banner, { package: package }))
+//     .pipe(gulp.dest('www/assets/js'))
+//     // .pipe(uglify())
+//     .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+//     // .pipe(header(banner, { package : package }))
+//     // .pipe(rename({ suffix: '.min' }))
+//     // .pipe(sourcemaps.write())
+//     // .pipe(gulp.dest('www/assets/js'))
+//     .pipe(browserSync.stream());    
+// });
 
 
 // /**
