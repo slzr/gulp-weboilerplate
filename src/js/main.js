@@ -1,7 +1,14 @@
-(function ($, window, document, undefined) {
+; (function ($, window, document, undefined) {
   'use strict';
-$(function () {
-  
-  //
-});
+  $(function () {
+    $(document).ready(function () {
+
+      //
+      console.log('ready!');
+      //
+
+      //=require ./partials/home.js 
+
+    });
+  });
 })(jQuery, window, document);

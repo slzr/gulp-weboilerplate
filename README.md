@@ -15,11 +15,13 @@ Includes:
   - [ ] Sprites generation
   - [ ] Iconfonts generation from SGVs
   - [ ] Bower components auto includes
+  - [ ] Bower images
+  - [ ] build fonts 
   - [ ] favicon, apple touch icons generation [32px, 72px, 114px]
 - [ ] SCSS files structure [Guidelines](https://sass-guidelin.es/), [Boilerplate](https://github.com/HugoGiraudel/sass-boilerplate)
 - [ ] Normalize
 - [ ] Modernizr
-- [ ] Tasks help
+- [x] Tasks help
 
 ## Installation
 
