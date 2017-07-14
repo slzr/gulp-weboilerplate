@@ -14,22 +14,17 @@ module.exports = function (gulp, $, conf) {
   })
 
   /**
-   * @task {serve}
-   * @group {serve}
+   * Build 'www'
+   * @task {build}
+   * @group {Serve}
    */
-  gulp.task('serve', $.sequence(['scss', 'bower'], 'watch', 'server'));
-    
+  gulp.task('build', $.sequence('clean', 'nunjucks', 'scss', 'scripts','images', 'fonts', 'copy', 'bower'));
+
+
+  /**
+   * Build and open browserSync server port and watch files for changes
+   * @task {serve}
+   * @group {Serve}
+   */
+  gulp.task('serve', $.sequence('build', 'watch', 'server'));
 }
-
-//     gulp.watch("src/scss/**/*.scss", ['scss']);
-//     gulp.watch("src/js/**/*.js", ['js']);
-//     gulp.watch("src/**/*.html").on('change', browserSync.reload);
-
-//     gulp.watch("src/js/**/*.js").on('change', browserSync.reload);
-
-//   });
-//   gulp.task('serve', sequence('scss', 'bower', 'server'));
-
-//   gulp.task('default', ['serve']);
-
-

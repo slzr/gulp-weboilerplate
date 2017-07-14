@@ -11,9 +11,10 @@ module.exports = function (gulp, $, conf) {
       filter: conf.scss.filter
     }))
       .pipe($.debug())
-      .pipe($.cleanCss())
       .pipe($.concat('vendor.min.css'))
-      .pipe(gulp.dest(conf.scss.dest));
+      .pipe($.cleanCss())
+      .pipe(gulp.dest(conf.scss.dest))
+      .pipe(conf.browserSync.stream());
   });
 
   gulp.task("bower:js", function () {
@@ -25,7 +26,8 @@ module.exports = function (gulp, $, conf) {
       .pipe($.uglify())
       .pipe($.optimizeJs())
       .pipe($.concat('vendor.min.js'))
-      .pipe(gulp.dest(conf.scripts.dest));
+      .pipe(gulp.dest(conf.scripts.dest))
+      .pipe(conf.browserSync.stream());
   })
 
   gulp.task('bower:fonts', function () {
@@ -34,13 +36,14 @@ module.exports = function (gulp, $, conf) {
       filter: ['**/*.eot', '**/*.svg', '**/*.ttf', '**/*.woff', '**/*.woff2', '**/*.otf']
     }))
       .pipe($.debug())
-      .pipe(gulp.dest(conf.fonts.dest));
+      .pipe(gulp.dest(conf.fonts.dest))
+      .pipe(conf.browserSync.stream());
   });
 
   /**
-   * 
+   * Package and concat all bower files ['bower:css', 'bower:js', 'bower:fonts']
    * @task {bower}
-   * @group {serve}
+   * @group {Processing}
    */
   gulp.task('bower', $.sequence('bower:css', 'bower:js', 'bower:fonts'));
 }

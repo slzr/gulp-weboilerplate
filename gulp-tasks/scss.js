@@ -6,9 +6,9 @@ module.exports = function(gulp, $, conf) {
     'use strict';
 
     /**
-     * Compile SCSS files
+     * Compile SCSS files => 'css'
      * @task {scss}
-     * @group {Processing}
+     * @group {Compiling}
      */
     gulp.task('scss', function(){
       return gulp.src(conf.scss.src)
@@ -18,12 +18,6 @@ module.exports = function(gulp, $, conf) {
         .pipe($.sourcemaps.write())
         .pipe($.rename('main.css'))        
         .pipe(gulp.dest(conf.scss.dest))
-        // .pipe(cssnano())
-        // .pipe(rename({ suffix: '.min' }))
-        // .pipe(header(banner, { package : package }))
-        // .pipe(sourcemaps.write())
-        // .pipe(gulp.dest('www/assets/css'))
-        // .pipe($.browserSync.stream())
         .pipe(conf.browserSync.stream());
     });
     

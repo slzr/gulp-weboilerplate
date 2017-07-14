@@ -17,14 +17,16 @@ conf.folders = {
 //  NUNJUCKS
 conf.nunjucks = {
   src: [
-    conf.folders.src + '/templates/*.njk'
+    conf.folders.src + '/pages/**/*.{nunjucks,njk}'
   ],
-  base: conf.folders.src + '/templates/*',
+  base: conf.folders.src + '/pages/',
+  templates: conf.folders.src + '/templates/',
   dest: conf.folders.dest,
   watch: [
-    conf.folders.src + '/**/*.html',
+    conf.folders.src + '/pages/**/*.{nunjucks,njk}',
+    conf.folders.src + '/templates/**/*.{nunjucks,njk}',
   ],
-  filter: '**/*.css'
+  filter: '**/*.{nunjucks,njk}'
 }
 //  NUNJUCKS
 
@@ -59,6 +61,48 @@ conf.scripts = {
 //  SCRIPTS  //
 
 
+//  IMAGES  //
+conf.images = {
+  src: [
+    conf.folders.src + '/images/**/*.{jpg,png,gif,svg}',
+  ],
+  base: conf.folders.src + '/images/',
+  dest: conf.folders.dest + '/images/',
+  watch: [
+    conf.folders.src + '/images/**/*.{jpg,png,gif,svg}',
+  ],
+  filter: '**/*.{jpg,png,gif,svg}'
+}
+//  IMAGES  //
+
+
+//  COPY  //
+conf.copy = {
+  media: {
+    src: [
+      conf.folders.src + '/media/**/*.{mp4,mp3}',
+    ],
+    base: conf.folders.src + '/media/',
+    dest: conf.folders.dest + '/media/',
+    watch: [
+      conf.folders.src + '/media/**/*.{mp4,mp3}',
+    ],
+    filter: '**/*.{mp4,mp3}'
+  },
+  scripts: {
+    src: [
+      conf.folders.src + '/js/partials/world-va.js'
+    ],
+    base: conf.folders.src + '/js/',
+    dest: conf.folders.dest + '/js/',
+    watch: [
+      conf.folders.src + '/js/**/*.js',
+    ],
+    filter: '**/*.js'
+  }
+}
+//  COPY  //
+
 //  FONTS  //
 conf.fonts = {
   src: [
@@ -73,6 +117,10 @@ conf.fonts = {
 
 //  BOWER  //
 conf.bower = {
+  watch: [
+    conf.folders.components,
+    ' ./bower.json'
+  ] ,
   overrides: {
     bootstrap: {
       main: ['./dist/js/bootstrap.js', './dist/css/bootstrap.css', './dist/fonts/*.*']
@@ -86,6 +134,9 @@ conf.bower = {
     lightbox2: {
       main: ['./dist/js/lightbox.js', './dist/css/lightbox.css']
     },
+    swiper: {
+      main: ['./dist/js/swiper.jquery.umd.js', './dist/css/swiper.css']
+    }
   }
 };
 //  BOWER  //

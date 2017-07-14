@@ -6,7 +6,7 @@ module.exports = function (gulp, $, conf) {
   'use strict';
 
   /**
-   * Lint and package js files
+   * Lint and package project js files
    * @task {scripts}
    * @group {Processing}
    */
@@ -14,11 +14,11 @@ module.exports = function (gulp, $, conf) {
     return gulp.src(conf.scripts.src)
       .pipe($.include())
         .on('error', console.log)
-      // .pipe($.jshint())
-      // .pipe($.jshint.reporter('jshint-stylish'))
-      // .pipe(concat('main.js'))
-      // .pipe($.rename('main.js'))
-      .pipe(gulp.dest(conf.scripts.dest));
+      .pipe($.jshint())
+      .pipe($.jshint.reporter('jshint-stylish'))
+      // .pipe($.concat('main.js'))
+      .pipe(gulp.dest(conf.scripts.dest))
+      .pipe(conf.browserSync.stream());
   });
 
 };

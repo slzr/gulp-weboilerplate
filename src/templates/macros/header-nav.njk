@@ -1,0 +1,29 @@
+
+
+{% macro active(activePage='inicio') %}
+<header class="side-header" role="banner">
+  <nav class="side-navbar" role="navigation">
+    <div class="side-navbar-header">
+      <a class="side-navbar-brand" href="/">
+          <img src="./images/icons/va-logo-256.png" >
+        </a>
+      <button class="side-navbar-toggle-menu collapsed" type="button" data-toggle="collapse" data-target="#side-navbar-content"
+        aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
+    </div>
+
+    <div class="side-navbar-content collapse" id="side-navbar-content">
+      <ul class="side-navbar-nav">
+        <li class="{%if activePage == 'inicio'      %}active{% endif %}"><a href="/">Inicio</a></li>
+        <li class="{%if activePage == 'nosotros'    %}active{% endif %}"><a href="nosotros.html">Nosotros</a></li>
+        <li class="{%if activePage == 'productos'   %}active{% endif %}"><a href="productos.html">Productos</a></li>
+        <li class="{%if activePage == 'operaciones' %}active{% endif %}"><a href="operaciones.html">Operaciones</a></li>
+        <li class="{%if activePage == 'proveedores' %}active{% endif %}"><a href="proveedores.html">Proveedores</a></li>
+        {#<li class="{%if activePage == 'clientes'    %}active{% endif %}"><a href="clientes.html">Clientes</a></li>#}
+        <li class="{%if activePage == 'aliados'     %}active{% endif %}"><a href="#">Aliados</a></li>
+        <li class="{%if activePage == 'noticias'    %}active{% endif %}"><a href="#">Noticias</a></li>
+        <li class="{%if activePage == 'contacto'    %}active{% endif %}"><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+{% endmacro %}

@@ -2,21 +2,27 @@
 /**
  * HTML TASKS
  */
+
+var path = require('path');
 module.exports = function (gulp, $, conf) {
   'use strict';
 
   /**
-   * Compile nunjucks files into html
+   * Compile nunjucks files => 'html'
    * @task {nunjucks}
-   * @group {Processing}
+   * @group {Compiling}
    */
   gulp.task('nunjucks', function () {
-    return gulp.src('./src/pages/**/*.{html,nunjucks,njk}')
+    return gulp.src(conf.nunjucks.src)
+      .pipe($.data(function() {
+        return require('../src/data.json')
+      }))
       .pipe($.debug())
       .pipe($.nunjucks({
-        path: ['./src/templates']
+        path: conf.nunjucks.templates
       }))
-      .pipe(gulp.dest('./www/'))
+      .pipe(gulp.dest(conf.nunjucks.dest))
+      .pipe(conf.browserSync.stream());
   });
 
 };
