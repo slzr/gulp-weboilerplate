@@ -1,0 +1,68 @@
+// -----------------------------------------------------------------------------
+// BASE, FONTS, TYPOGRAPHY, HELPERS
+// -----------------------------------------------------------------------------
+
+// BASE
+body {
+  color:       $dark;
+  font-family: $primary-font;
+}
+
+// STICKY FOOTER
+// body {
+//   width:          100%;
+//   display:        flex;
+//   min-height:     100vh;
+//   flex-direction: column;
+// }
+// main.main-content { flex: 1; }
+// STICKY FOOTER
+
+p {
+  font-size:     1.6rem;
+  margin-bottom: 1.6rem;
+  &:last-child { margin-bottom: 0; }
+}
+
+///////////////
+// HELPERS  //
+
+// COLORS HELPERS [COLOR, BACKGROUND]
+@each $key, $value in $colors {
+  .#{$key}-color { color: $value; }
+  .#{$key}-bg { background-color: $value; }
+  .#{$key}-link { 
+    color: $value; 
+    text-decoration: none;
+    transition: color .3s ease;
+    &:focus, &:hover, &:active {
+      color: fade($value, 50);
+    }
+  }
+}
+
+// DIFERENTS SIZES MARGINS & PADDINGS In ALL DIRECTIONS
+@each $key, $value in $pm-sizes {
+  .margin-#{$key} { margin: $value; }
+  .padding-#{$key} { padding: $value; }
+  @each $coord in $coords {
+    .margin-#{$coord}-#{$key} { margin-#{$coord}: $value; }
+    .padding-#{$coord}-#{$key} { padding-#{$coord}: $value; }
+  }
+  .margin-v-#{$key} { @include v-margin($value) }
+  .padding-v-#{$key} { @include v-padding($value) }
+}
+
+.text-justify { text-align: justify; }
+
+.light    { font-weight: 300;}
+.block    { display:     block; }
+.normal   { font-weight: 500;}
+.bold     { font-weight: 700;}
+.italic   { font-style:  italic; }
+.relative { position:    relative; }
+
+
+.Explorer11{ 
+  // EXPLORER 11 FIXS
+}

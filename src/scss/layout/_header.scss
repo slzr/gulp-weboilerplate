@@ -1,0 +1,28 @@
+
+
+$navbar-height: 6.2rem;
+.navbar {
+  .navbar-header {
+    .navbar-brand {
+      img { }
+    }
+    .navbar-toggle {
+      &:active { }
+    }
+  }
+  nav.navbar-collapse {
+    .navbar-nav {
+      li {
+        &.active a { }
+        a {
+          &:hover, &:active, &:focus { }
+        }
+      }
+    }
+  }
+
+  &.afix { }
+}
+
+.navbar-padding-top { padding-top: $navbar-height; }
+.navbar-margin-top { margin-top: $navbar-height; }

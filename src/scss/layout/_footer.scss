@@ -1,0 +1,11 @@
+footer.footer { 
+  // PLACEHOLDER STYLES
+  color:            $dark;
+  padding:          4.8rem 0;
+  font-size:        1.6rem;
+  font-weight:      bold;
+  text-transform:   uppercase;
+  background-color: $light;
+  @include flex-center;
+  // PLACEHOLDER STYLES
+}

@@ -18,7 +18,7 @@ module.exports = function (gulp, $, conf) {
    * @task {build}
    * @group {Serve}
    */
-  gulp.task('build', $.sequence('clean', 'nunjucks', 'scss', 'scripts','images', 'fonts', 'copy', 'bower'));
+  gulp.task('build', $.sequence('clean', 'pug', 'scss', 'scripts','images', 'fonts', 'copy', 'bower'));
 
 
   /**

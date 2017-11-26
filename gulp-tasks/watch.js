@@ -11,7 +11,7 @@ module.exports = function (gulp, $, conf) {
    * @group {Serve}
    */
   gulp.task('watch', function () {
-    gulp.watch(conf.nunjucks.watch,   ['nunjucks']);
+    gulp.watch(conf.pug.watch,        ['pug']);
     gulp.watch(conf.scss.watch,       ['scss']);
     gulp.watch(conf.scripts.watch,    ['scripts']);
     gulp.watch(conf.images.watch,     ['images']);

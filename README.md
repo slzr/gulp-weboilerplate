@@ -1,55 +1,45 @@
-# Gulp Web Boilerplate
+# Web Boilerplate
+----------
+Proyecto base, seed o boilerplate para proyectos web sencillos tipo landingpages.
 
-Just another gulp template for web projects.
-
-Includes:
-
+Todos:
 - [x] Gulp tasks:
   - [x] Sass compile
   - [x] BrowserSync Server
   - [x] Js Lint/Uglify
   - [x] Files concatenation
   - [ ] Bootstrap sass
-  - [ ] Images minification, svgo
+  - [x] Images minification, svgo
   - [ ] Build tasks
   - [ ] Sprites generation
   - [ ] Iconfonts generation from SGVs
-  - [ ] Bower components auto includes
+  - [x] Bower components auto includes
   - [ ] Bower images
   - [ ] build fonts 
   - [ ] favicon, apple touch icons generation [32px, 72px, 114px]
 - [ ] SCSS files structure [Guidelines](https://sass-guidelin.es/), [Boilerplate](https://github.com/HugoGiraudel/sass-boilerplate)
 - [ ] Normalize
-- [ ] Modernizr
 - [x] Tasks help
 
-## Installation
 
-Desde consola, teniendo instalado nodejs con npm ejecutas:
+## Desarrollo
+Desde consola, teniendo instalado `nodejs` con `npm` y `sass` ejecutas:
 
 - Dependencias Globales:
-
 ```sh
-$ npm install -g bower gulp
+$ npm install -g bower gulp-cli
 ```
 
-- Instalar dependencias del proyectos:
-
+- Dependencias del proyecto:
 ```sh
+$ composer install
 $ npm install
 $ bower install
 ```
 
 ## Gulp Tasks
-
-- Servidor LiveReload
-> Compila Stylus, Jade, Lint js y abre Explorador Web
 ```sh
-$ gulp serve
-```
-
-- Compilar app
-> Crear carpeta dist, con todos los archivos minificados y concatenados, imagenes minificadas, fuentes, etc.
-```sh
-$ gulp build
+> gulp       # Enlista todas las tareas disponibles
+> gulp build # Genera/Constuye proyecto [www]
+> gulp serve # Servidor 
 ```

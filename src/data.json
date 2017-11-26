@@ -1,17 +1,13 @@
 {
-  "test": "hola mundo",
-  "home": {
-    "testimonials": [
-      {
-        "cita": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quibusdam, dolore molestiae labore voluptate praesentium. Sapiente autem ea veniam veritatis. Hic atque nihil deserunt ab aut, voluptatum aliquam molestias libero.",
-        "nombre": "Lorem ipsum dolor",
-        "cargo": "Lorem ipsum dolor"
-      },
-      {
-        "cita": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quibusdam, dolore molestiae labore voluptate praesentium. Sapiente autem ea veniam veritatis. Hic atque nihil deserunt ab aut, voluptatum aliquam molestias libero.",
-        "nombre": "Lorem ipsum dolor",
-        "cargo": "Lorem ipsum dolor"
-      }
-    ]
-  }
+  "projectName":        "Web boilerplate",
+  "projectDescription": "Proyecto base, seed o boilerplate para proyectos web sencillos tipo landing pages.",
+  "projectKeywords":    "web, boilerplate, gulp",
+  "projectAuthor":      "NebulaTech",
+  "projectLang":        "es",
+  "pages": [
+    { "name": "Inicio",    "slug": "inicio",    "link": "#inicio" },
+    { "name": "Acerca de", "slug": "acerca",    "link": "#acerca" },
+    { "name": "Servicios", "slug": "servicios", "link": "#servicios" },
+    { "name": "Contacto",  "slug": "contacto",  "link": "#contacto" }
+  ]
 }

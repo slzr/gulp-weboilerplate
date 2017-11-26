@@ -1,0 +1,27 @@
+//  PLACEHOLDER STYLES
+#inicio, #acerca, #servicios, #contacto {
+  color:          rgba($light, 1);
+  font-size:      1.6rem;
+  font-weight:    bold;
+  text-transform: uppercase;
+  @include flex-center;
+}
+
+#inicio {
+  height: 768px;
+  background-color: #e53935  ;
+}
+#acerca {
+  height: 512px;
+  background-color: #1e88e5 ;
+}
+#servicios {
+  height: 1024px;
+  background-color: #43a047  ;
+}
+#contacto {
+  height: 256px;
+  background-color: #ffb300  ;
+}
+//  PLACEHOLDER STYLES
+

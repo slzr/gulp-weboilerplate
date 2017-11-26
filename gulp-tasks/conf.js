@@ -14,21 +14,22 @@ conf.folders = {
 };
 
 
-//  NUNJUCKS
-conf.nunjucks = {
+//  PUG
+conf.pug = {
   src: [
-    conf.folders.src + '/pages/**/*.{nunjucks,njk}'
+    conf.folders.src + '/pages/**/*.pug'
   ],
   base: conf.folders.src + '/pages/',
   templates: conf.folders.src + '/templates/',
   dest: conf.folders.dest,
   watch: [
-    conf.folders.src + '/pages/**/*.{nunjucks,njk}',
-    conf.folders.src + '/templates/**/*.{nunjucks,njk}',
+    conf.folders.src + '/pages/**/*.pug',
+    conf.folders.src + '/templates/**/*.pug',
+    conf.folders.src + '/data.json',
   ],
-  filter: '**/*.{nunjucks,njk}'
+  filter: '**/*.pug'
 }
-//  NUNJUCKS
+//  PUG
 
 
 //  SCSS  //
@@ -49,7 +50,7 @@ conf.scss = {
 //  SCRIPTS  //
 conf.scripts = {
   src: [
-    conf.folders.src + '/js/main.js',
+    conf.folders.src + '/js/*.js',
   ],
   base: conf.folders.src + '/js/',
   dest: conf.folders.dest + '/js/',
@@ -64,12 +65,12 @@ conf.scripts = {
 //  IMAGES  //
 conf.images = {
   src: [
-    conf.folders.src + '/images/**/*.{jpg,png,gif,svg}',
+    conf.folders.src + '/img/**/*.{jpg,png,gif,svg}',
   ],
-  base: conf.folders.src + '/images/',
-  dest: conf.folders.dest + '/images/',
+  base: conf.folders.src + '/img/',
+  dest: conf.folders.dest + '/img/',
   watch: [
-    conf.folders.src + '/images/**/*.{jpg,png,gif,svg}',
+    conf.folders.src + '/img/**/*.{jpg,png,gif,svg}',
   ],
   filter: '**/*.{jpg,png,gif,svg}'
 }
@@ -88,20 +89,10 @@ conf.copy = {
       conf.folders.src + '/media/**/*.{mp4,mp3}',
     ],
     filter: '**/*.{mp4,mp3}'
-  },
-  scripts: {
-    src: [
-      conf.folders.src + '/js/partials/world-va.js'
-    ],
-    base: conf.folders.src + '/js/',
-    dest: conf.folders.dest + '/js/',
-    watch: [
-      conf.folders.src + '/js/**/*.js',
-    ],
-    filter: '**/*.js'
   }
 }
 //  COPY  //
+
 
 //  FONTS  //
 conf.fonts = {

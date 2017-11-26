@@ -1,0 +1,43 @@
+include ./mixins/header-nav
+
+doctype html
+html(lang=projectLang)
+  block vars
+    - var pageTitle = "Titulo de pagina"
+    - var pageDescription = projectDescription
+    - var pageKeywords = projectKeywords
+    - var author = projectAuthor
+  head
+    meta(charset="utf-8")
+  
+    title #{projectName} | #{pageTitle}
+
+    meta(name="description" content=pageDescription)
+    meta(name="keywords" content=pageKeywords)
+    meta(name="author" content=author)
+
+    script(src="./js/browser-detect.js")
+
+    meta(http-equiv="x-ua-compatible" content="ie=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+    link(rel="apple-touch-icon" sizes="180x180" href="./img/icons/apple-touch-icon.png")
+    link(rel='shortcut icon' type='image/png' href='./img/icons/favicon.png')
+
+    block styles
+      link(rel="stylesheet" href="./css/vendor.min.css")
+      link(rel="stylesheet" href="./css/main.css")
+  body#top
+
+    block header
+
+    block main
+      main(role="main").main-content
+        block content
+
+    block footer
+      include ../templates/partials/footer.pug    
+
+    block script
+      script(src="./js/vendor.min.js")
+      script(src="./js/main.js")

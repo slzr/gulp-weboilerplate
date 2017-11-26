@@ -1,0 +1,129 @@
+
+
+// ---
+// SIZE
+// ---
+@mixin size($width, $height: $width) {
+  width:  $width;
+  height: $height;
+}
+
+
+// ---
+// OFFSETS
+// Helper mixin for offset positioning
+// https://hugogiraudel.com/2014/05/19/new-offsets-sass-mixin/
+// ---
+
+@mixin position($position, $args: ()) {
+  $offsets: top right bottom left;
+  position: $position;                                               // 1
+  
+  @each $offset in $offsets {                                        // 3
+    $index: index($args, $offset);                                   // 4
+    
+    @if $index {                                                     // 5
+      @if $index == length($args) {                                  // 6
+        #{$offset}: 0;                                               // 7
+      }
+      @else {                                                        // 8
+        $next: nth($args, $index + 1);                               // 9
+        @if is-valid-length($next) {                                 // 10
+          #{$offset}: $next;                                         // 11
+        }
+        @else if index($offsets, $next) {                            // 12
+          #{$offset}: 0;                                             // 13
+        }
+        @else {                                                      // 14
+          @warn "Invalid value `#{$next}` for offset `#{$offset}`."; // 15
+        }
+      }
+    }
+  }
+}
+
+@function is-valid-length($value) {
+  @return (type-of($value) == "number" and not unitless($value)) 
+    or (index(auto initial inherit 0, $value) != null);
+}
+ 
+@mixin absolute($args: ()) {
+  @include position(absolute, $args);
+}
+ 
+@mixin fixed($args: ()) {
+  @include position(fixed, $args);
+}
+ 
+@mixin relative($args: ()) {
+  @include position(relative, $args);
+}
+
+
+// ---
+// MATERIAL SHADOW
+// ---
+@mixin shadow($level: 1) {
+  @if $level == 1 { box-shadow: 0 1px 3px rgba(black, .12), 0 1px 2px rgba(black, .24); } 
+  @else if $level == 2 { box-shadow: 0 3px 6px rgba(black, .16), 0 3px 6px rgba(black, .23); }
+  @else if $level == 3 { box-shadow: 0 10px 20px rgba(black, .19), 0 6px 6px rgba(black, .23); }
+  @else if $level == 4 { box-shadow: 0 14px 28px rgba(black, .25), 0 10px 10px rgba(black, .22); }
+  @else if $level == 5 { box-shadow: 0 19px 38px rgba(black, .30), 0 15px 12px rgba(black, .22); }
+}
+
+
+// ---
+// CLEARFIX
+// ---
+@mixin clearfix() {
+  &:after, &:before {
+    content: "";
+    display: table;
+    clear:   both;
+  }
+}
+
+
+
+// ---
+// BACKGROUND IMAGE
+// ---
+@mixin bg-img($url: '', $position: center, $size: cover) {
+  @if str-length($url) > 0{
+    background-image: url($url);
+  }
+  background-size:     $size;
+  background-repeat:   no-repeat; 
+  background-position: $position;
+}
+
+
+
+// ---
+// VERTICAL ATTRIBUTE
+// ---
+@mixin v-attr($attr, $top, $bottom: $top) {
+  #{$attr}-top: $top;
+  #{$attr}-bottom: $bottom;
+}
+@mixin v-padding($top, $bottom: $top) { @include v-attr(padding, $top, $bottom) }
+@mixin v-margin($top, $bottom: $top) { @include v-attr(margin, $top, $bottom) }
+
+
+
+// ---
+// HORIZONTAL ATTRIBUTE
+// ---
+@mixin h-attr($attr, $top, $bottom: $top) {
+  #{$attr}-left: $top;
+  #{$attr}-right: $bottom;
+}
+@mixin h-padding($top, $bottom: $top) { @include h-attr(padding, $top, $bottom) }
+@mixin h-margin($top, $bottom: $top) { @include h-attr(margin, $top, $bottom) }
+
+
+@mixin flex-center(){
+  display:     flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -4,8 +4,7 @@ var gulp    = require('gulp');
 var plugins = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'browser-sync', 'main-bower-files', 'del'],
   rename: {
-    'main-bower-files': 'bower',
-    'gulp-nunjucks-render': 'nunjucks'
+    'main-bower-files': 'bower'
   }
 });
 var tasksPath = './gulp-tasks/';

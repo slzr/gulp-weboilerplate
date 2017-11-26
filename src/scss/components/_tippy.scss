@@ -1,0 +1,9 @@
+.tippy { cursor: pointer; }
+
+.tippy-tooltip {
+  &.custom-theme {
+    .tippy-tooltip-content {
+      .tippy-header { }
+    }
+  }
+}

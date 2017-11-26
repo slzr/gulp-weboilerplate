@@ -11,17 +11,11 @@ module.exports = function (gulp, $, conf) {
       .pipe(gulp.dest(conf.copy.media.dest))    
       .pipe(conf.browserSync.stream());      
   })
-  gulp.task('copy:scripts', function () {
-    return gulp.src(conf.copy.scripts.src)
-      .pipe(gulp.dest(conf.copy.scripts.dest))    
-      .pipe(conf.browserSync.stream());      
-  })
-
 
   /**
    * Copy files
    * @task {copy}
    * @group {Processing}
    */
-  gulp.task('copy', $.sequence('copy:media','copy:scripts'));
+  gulp.task('copy', $.sequence('copy:media'));
 }
