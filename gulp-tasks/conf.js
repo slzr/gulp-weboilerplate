@@ -1,8 +1,10 @@
 
 
-var pkg = require('../package.json');
+var pkg  = require('../package.json');
 var conf = module.exports = {};
+require('dotenv').config()
 
+conf.env = process.env;
 
 //  FOLDERS  //
 conf.folders = {
@@ -66,6 +68,9 @@ conf.scripts = {
 conf.images = {
   src: [
     conf.folders.src + '/img/**/*.{jpg,png,gif,svg}',
+  ],
+  tiny: [
+    conf.folders.src + '/img/**/*.{jpg,jpeg,png}',
   ],
   base: conf.folders.src + '/img/',
   dest: conf.folders.dest + '/img/',

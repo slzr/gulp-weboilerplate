@@ -15,4 +15,4 @@ mixin active(activePage)
         ul(class="nav navbar-nav navbar-right")
           each page in pages
             li(class={active : activePage == page.slug})
-              a(href=page.link data-scroll) #{page.name}
+              a(href=page.link smooth-scroll) #{page.name}

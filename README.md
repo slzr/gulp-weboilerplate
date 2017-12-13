@@ -21,7 +21,6 @@ Todos:
 - [ ] Normalize
 - [x] Tasks help
 
-
 ## Desarrollo
 Desde consola, teniendo instalado `nodejs` con `npm` y `sass` ejecutas:
 
@@ -32,14 +31,16 @@ $ npm install -g bower gulp-cli
 
 - Dependencias del proyecto:
 ```sh
-$ composer install
 $ npm install
 $ bower install
 ```
 
 ## Gulp Tasks
 ```sh
-> gulp       # Enlista todas las tareas disponibles
-> gulp build # Genera/Constuye proyecto [www]
-> gulp serve # Servidor 
+> gulp           # Enlista todas las tareas disponibles
+> gulp build     # Genera/Construye proyecto [www]
+> gulp serve     # Servidor BrowserSync con watchs
+
+> gulp imagemin  # Minifica todas las imagenes usando Imagemin y las sobreescribe en el src
+> gulp tiny      # Minifica todas las imagenes usando TinyPNG y las sobreescribe en el src
 ```

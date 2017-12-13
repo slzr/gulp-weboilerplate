@@ -19,7 +19,7 @@ module.exports = function(gulp, $, conf) {
         .pipe($.autoprefixer({ browsers: ['last 4 version', '> 5%'] }))
         .pipe($.sourcemaps.write())
         .pipe($.rename('main.css'))       
-        .pipe(plumber.stop()) 
+        .pipe($.plumber.stop()) 
         .pipe(gulp.dest(conf.scss.dest))
         .pipe(conf.browserSync.stream());
     });

@@ -1,6 +1,7 @@
 .mfp-bg, .mfp-wrap { z-index: 10000; }
 
 $time: .2s;
+
 //====== FADE EFFECT ======//
 .mfp-fade {
   &.mfp-bg {
@@ -82,15 +83,17 @@ $time: .2s;
   }
 }
 
-//====== Modal ======//
 .mfp-modal {
-  width:            100%;
-  margin:           3.2rem auto;
-  padding:          3.2rem;
-  position:         relative;
-  max-width:        768px;
-  border-radius:    .4rem;
-  background-color: $light;
+  width:               100%;
+  margin:              3.2rem auto;
+  padding:             3.2rem;
+  position:            relative;
+  max-width:           768px;
+  border-radius:       .4rem;
+  background-size:     100px;
+  background-color:    $light;
+  background-repeat:   no-repeat;
+  background-position: left bottom, right top;
   .mfp-close {
     $btn-size: 2.2rem;
     color:         $accent;

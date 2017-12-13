@@ -4,8 +4,22 @@
 
 // BASE
 body {
-  color:       $dark;
+  color:       $gray-dark;
+  position:    relative;
   font-family: $primary-font;
+  .loader-overlay {
+    z-index:             10000;
+    background-color:    $light;
+    @include absolute(top left right bottom);
+  }
+  .loader-container {
+    z-index:                   10001;   
+    transform:                 translate(-50%, -50%);
+    @include fixed(top 50% left 50%);
+    .loader {
+      @include loader02($color: $primary);
+    }
+  }
 }
 
 // STICKY FOOTER
@@ -22,6 +36,11 @@ p {
   font-size:     1.6rem;
   margin-bottom: 1.6rem;
   &:last-child { margin-bottom: 0; }
+}
+
+a {
+  outline: none;
+  &:focus, &:hover, &:active { outline: none; }
 }
 
 ///////////////

@@ -4,7 +4,9 @@
 @import
   'abstracts/variables',
   'abstracts/functions',
-  'abstracts/mixins';
+  'abstracts/mixins',
+  '../components/spinthatshit/src/loaders';
+  
 
 // 2. Base stuff
 @import
@@ -18,10 +20,11 @@
 
 // 4. Components
 @import
+  'components/buttons',
+  'components/forms',
   'components/magnific-popup',
   'components/sweet-alert',
   'components/tippy';
-
 
 // 5. Page-specific styles
 @import

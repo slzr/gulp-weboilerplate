@@ -2,3 +2,4 @@ src/components/
 node_modules/
 build/
 www/
+.env
